@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart link filter</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: sans-serif;
+            font-size: 16px;
+            color: #e4e1c5;
+            background: #222222;
+        }
+        #info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            width: 100%;
+            background: #222222;
+        }
+        #info p {
+            min-height: 300px;
+            max-width: 500px;
+            text-align: center;
+        }
+        #help {
+            display: block;
+            text-align: left;
+            border-radius: 10px;
+            background: #444444;
+            padding: 10px;
+            padding-left: 30px;
+            margin-top: 10px;
+        }
+        #ok_btn {
+            height: 25px;
+            width: 50px;
+            border-radius: 3px;
+            outline: none;
+            border: none;
+            background: #999999;
+            cursor: pointer;
+            transition: 0.1s ease-in;
+        }
+        #ok_btn:hover {
+            background: #575757;
+        }
+        #maincontainer{
+            display: flex;
+            flex-flow: column;
+            height: 500px;
+            width: 80%;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        #printer {
+            height: 100%;
+            width: 100%;
+            line-height: 20px;
+            background: #444444;
+            padding: 20px;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        #input {
+            height: 35px;
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            color: #e4e1c5;
+            background: #323232;
+        }
+        #input::placeholder {
+            font-size: 20px;
+        }
+        .main_element {
+            border-radius: 5px;
+            padding: 3px 10px;
+            transition: 0.1s ease-in;
+        }
+        .main_element:hover {
+            background: #3a3a3a;
+        }
+        .smart_img {
+            display: block;
+            width: 300px;
+            border-radius: 5px;
+            margin: 0 auto;
+        }
+        .smart_link {
+            display: inherit;
+            width: max-content;
+            color: #243aff;
+        }
+        .smart_link:hover {
+            text-decoration: none;
+        }
+        .hidden_text, .hidden_span {
+            border-radius: 3px;
+            cursor: pointer;
+            margin: 0 5px;
+            overflow: hidden;
+            transition: 0.1s ease-in;
+        }
+        .hidden {
+            position: relative;
+            background: #222222;
+        }
+        .hidden:hover {
+            background: #2b2b2b;
+        }
+        .hidden .hidden_span {
+            z-index: -1;
+        }
+        .hidden_span {
+            position: relative;
+            background: #646464;
+            padding: 1px 5px;
+            margin: 0;
+            z-index: 1;
+        }
+        .triggered_text {
+            border-radius: 3px;
+            color: #000000;
+            background: #ffffff;
+            padding: 1px 5px;
+            margin: 0 5px;
+        }
+        .triggered_text:hover {
+            color: #ff0000;
+            background: #fffb00;
+        }
+    </style>
+</head>
+<body>
+    <div id="info">
+        <p>
+            ! Hi friend !<br>
+            I have tried to make a chat-box like discord. I have just tried and became success. 
+            Not fully at all. Because I made this with only JS. So it has no server-side script. So it doesn't save any data.
+            <span id="help">
+                It hase some interesting feature like discord.<br>
+                1. write something into || this || to hide something.<br>
+                2. write something into !! this !! to highlight something.<br>
+                3. write any link.<br>
+                4. write any image's link.
+            </span><br>
+            <button id="ok_btn" onclick="info()"> OK </button>
+        </p>
+    </div>
+
+    <div id="maincontainer">
+        <div id="printer"></div>
+        <input type="text" id="input" placeholder="Type here...">
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
